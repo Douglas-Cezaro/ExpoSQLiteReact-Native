@@ -10,7 +10,7 @@ import {
 } from "react-native";
 
 import * as SQLite from "expo-sqlite";
-const db = SQLite.openDatabase("db.testDb"); // returns Database object
+const db = SQLite.openDatabase("db.testDb"); // retorna objeto banco
 
 const Style = StyleSheet.create({
   container: {
@@ -76,13 +76,13 @@ class App extends React.Component {
       data: null,
       nome: "",
     };
-    // Check if the items table exists if not create it
+    // Verifique se a tabela de itens existe, se não a criar
     db.transaction((tx) => {
       tx.executeSql(
         "CREATE TABLE IF NOT EXISTS items (id INTEGER PRIMARY KEY AUTOINCREMENT, text TEXT, count INT)"
       );
     });
-    this.fetchData(); // ignore it for now
+    this.fetchData(); //Metodo de select
   }
   fetchData = () => {
     db.transaction((tx) => {
